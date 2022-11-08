@@ -7,11 +7,11 @@ const Services = () => {
     console.log(services);
 
     return (
-        <div className='p-10'>
+        <div className=''>
             <div>
                 Banner
             </div>
-            <div className='grid grid-cols-3 gap-5'>
+            <div className='container mx-auto grid grid-cols-3 gap-5'>
                 {
                     services.map(service => <ServiceCard key={service._id} service={service}></ServiceCard>)
                 }

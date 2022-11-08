@@ -6,6 +6,8 @@ import Services from "../../Pages/Services/All Services/Services";
 import ServiceDetails from "../../Pages/Services/Single Services/ServiceDetails";
 import Blog from "../../Pages/Blog/Blog";
 import Login from "../../Pages/Login/Login";
+import Register from "../../Pages/Register/Register";
+import PlaceOrder from "../../Pages/PlaceOrder.js/PlaceOrder";
 
 
 export const router = createBrowserRouter([
@@ -35,12 +37,15 @@ export const router = createBrowserRouter([
                 }
             },
             {
-                path: "/checkout/:id",
-                element: <div></div>,
+                path: "/placeorder/:id",
+                element: <PlaceOrder></PlaceOrder>,
                 loader: async ({ params }) => {
                     return fetch(`http://localhost:5000/service/${params.id}`);
                 }
 
+            },
+            {
+                path: ""
             },
             {
                 path: "/blog",
@@ -52,7 +57,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: "/register",
-                element: ,
+                element: <Register></Register>,
             }
 
 

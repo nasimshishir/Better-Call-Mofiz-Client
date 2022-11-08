@@ -11,7 +11,7 @@ const ServiceDetails = () => {
         <div>
             Service Details Page: {name}
             <br />
-            <Link to={`/checkout/${_id}`} ><button className='btn'>Aquire</button></Link>
+            <Link to={`/placeorder/${_id}`} ><button className='btn'>Aquire</button></Link>
 
         </div>
     );
