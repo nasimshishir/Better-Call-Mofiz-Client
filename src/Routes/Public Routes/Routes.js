@@ -19,28 +19,28 @@ export const router = createBrowserRouter([
                 path: "/",
                 element: <Home></Home>,
                 loader: async () => {
-                    return fetch('http://localhost:5000/servicesForHome');
+                    return fetch('https://assignment-11-server-eight.vercel.app/servicesForHome');
                 }
             },
             {
                 path: "/services",
                 element: <Services></Services>,
                 loader: async () => {
-                    return fetch('http://localhost:5000/services');
+                    return fetch('https://assignment-11-server-eight.vercel.app/services');
                 }
             },
             {
                 path: "/service/:id",
                 element: <ServiceDetails></ServiceDetails>,
                 loader: async ({ params }) => {
-                    return fetch(`http://localhost:5000/service/${params.id}`);
+                    return fetch(`https://assignment-11-server-eight.vercel.app/service/${params.id}`);
                 }
             },
             {
                 path: "/placeorder/:id",
                 element: <PlaceOrder></PlaceOrder>,
                 loader: async ({ params }) => {
-                    return fetch(`http://localhost:5000/service/${params.id}`);
+                    return fetch(`https://assignment-11-server-eight.vercel.app/service/${params.id}`);
                 }
 
             },

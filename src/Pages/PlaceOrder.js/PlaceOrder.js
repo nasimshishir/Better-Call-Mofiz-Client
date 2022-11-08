@@ -23,7 +23,7 @@ const PlaceOrder = () => {
             address: address
         }
 
-        fetch('http://localhost:5000/orders', {
+        fetch('https://assignment-11-server-eight.vercel.app/orders', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -42,15 +42,15 @@ const PlaceOrder = () => {
 
     return (
         <div className=' bg-slate-100'>
-
+            {/* Banner */}
             <div className='h-96 ' style={{ backgroundImage: `url(https://cdn.pixabay.com/photo/2017/06/09/22/56/lady-justice-2388500_960_720.jpg)` }}>
                 <h2>{name}</h2>
-
             </div>
+            {/* Order Box */}
             <div className='container mx-auto card shadow-xl mt-16 p-16 bg-white'>
                 <h1 className="text-4xl font-bold text-center px-24 col-span-2">Place Order</h1>
                 <h1 className="text-sm text-red-600 text-center px-24 col-span-2 mb-10">(All the following info are required)</h1>
-                <h1 className="text-4xl font-bold text-center px-24 col-span-2 mt-10">{name}</h1>
+                <h1 className="text-4xl font-bold px-24 col-span-2"><strong>Service</strong>{name}</h1>
 
                 {/* Order Form */}
                 <form onSubmit={handlePlaceOrderSubmit}>
@@ -76,6 +76,10 @@ const PlaceOrder = () => {
                         <button className="btn btn-primary">Place Order</button>
                     </div>
                 </form>
+
+            </div>
+            {/* Service Reviews */}
+            <div>
 
             </div>
 
