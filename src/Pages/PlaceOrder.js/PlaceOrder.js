@@ -23,9 +23,21 @@ const PlaceOrder = () => {
             address: address
         }
 
-
-
-
+        fetch('http://localhost:5000/orders', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(orderDetails)
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.acknowledged) {
+                    alert('You have successfully added the service')
+                    form.reset();
+                }
+            })
+            .catch(error => console.error(error));
     }
 
     return (
@@ -38,7 +50,7 @@ const PlaceOrder = () => {
             <div className='container mx-auto card shadow-xl mt-16 p-16 bg-white'>
                 <h1 className="text-4xl font-bold text-center px-24 col-span-2">Place Order</h1>
                 <h1 className="text-sm text-red-600 text-center px-24 col-span-2 mb-10">(All the following info are required)</h1>
-                <h1 className="text-4xl font-bold text-center px-24 col-span-2 mt-10">Place Order</h1>
+                <h1 className="text-4xl font-bold text-center px-24 col-span-2 mt-10">{name}</h1>
 
                 {/* Order Form */}
                 <form onSubmit={handlePlaceOrderSubmit}>
