@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
+import OrdersListModel from '../../Components/OrdersListModel/OrdersListModel';
 import { AuthContext } from '../../Contexts/AuthProvider/AuthProvider';
 
 const Orders = () => {
@@ -18,8 +19,16 @@ const Orders = () => {
 
     return (
         <div>
+            <div>
+
+            </div>
+
+            {/* Orders List */}
+            <div>
+
+            </div>
             {
-                myOrders.map(myOrder => <div key={myOrder._id}>{myOrder.nameOfService}</div>)
+                myOrders.map(myOrder => <OrdersListModel key={myOrder._id} orderList={myOrder}>{myOrder.nameOfService}</OrdersListModel>)
             }
 
         </div>

@@ -12,8 +12,8 @@ const Header = () => {
             .catch(error => console.error(error))
     }
     return (
-        <div className='bg-transparent'>
-            <div className='bg-opacity-50 bg-black'>
+        <div className='bg-slate-100 shadow-lg'>
+            <div className=''>
                 <div className="navbar">
                     <div className="flex-1">
                         <Link className="btn btn-ghost normal-case text-xl">Better Call Alom</Link>
