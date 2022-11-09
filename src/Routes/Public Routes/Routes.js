@@ -8,6 +8,8 @@ import Blog from "../../Pages/Blog/Blog";
 import Login from "../../Pages/Login/Login";
 import Register from "../../Pages/Register/Register";
 import PlaceOrder from "../../Pages/PlaceOrder.js/PlaceOrder";
+import Orders from "../../Pages/Orders/Orders";
+import MyReviews from "../../Pages/My Reviews/MyReviews";
 
 
 export const router = createBrowserRouter([
@@ -45,7 +47,12 @@ export const router = createBrowserRouter([
 
             },
             {
-                path: ""
+                path: "/orders",
+                element: <Orders></Orders>
+            },
+            {
+                path: "/myreviews",
+                element: <MyReviews></MyReviews>
             },
             {
                 path: "/blog",

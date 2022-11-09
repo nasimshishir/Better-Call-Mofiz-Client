@@ -2,9 +2,9 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Contexts/AuthProvider/AuthProvider';
 
+
 const Header = () => {
     const { user, logOut } = useContext(AuthContext);
-
 
     const handleLogOut = () => {
         logOut()
@@ -12,7 +12,7 @@ const Header = () => {
             .catch(error => console.error(error))
     }
     return (
-        <div className='bg-transparent text-white'>
+        <div className='bg-transparent'>
             <div className='bg-opacity-50 bg-black'>
                 <div className="navbar">
                     <div className="flex-1">
@@ -28,23 +28,29 @@ const Header = () => {
 
                     {/* User Profile Bubble */}
 
-                    <div className="dropdown dropdown-end">
-                        <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-                            <div className="w-10 rounded-full">
-                                <img src="https://placeimg.com/80/80/people" />
+                    {
+                        user ? <div className="dropdown dropdown-end">
+                            <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                                <div className="w-10 rounded-full">
+                                    <img src={user?.photoURL} alt="" />
+                                </div>
+                            </label>
+                            <ul tabIndex={0} className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52">
+                                <li>
+                                    <Link className="justify-between">
+                                        Profile
+                                    </Link>
+                                </li>
+                                <li><Link>Settings</Link></li>
+                                <li><button onClick={handleLogOut}>Logout</button></li>
+                            </ul>
+                        </div>
+                            :
+                            <div>
+                                <Link to="/login"><button className='btn mx-2'>Login</button></Link>
+                                <Link to="/register"><button className='btn mx-2'>Register</button></Link>
                             </div>
-                        </label>
-                        <ul tabIndex={0} className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52">
-                            <li>
-                                <a className="justify-between">
-                                    Profile
-                                    <span className="badge">New</span>
-                                </a>
-                            </li>
-                            <li>Settings</li>
-                            <li><button onClick={handleLogOut}>Logout</button></li>
-                        </ul>
-                    </div>
+                    }
                 </div>
             </div>
         </div>
