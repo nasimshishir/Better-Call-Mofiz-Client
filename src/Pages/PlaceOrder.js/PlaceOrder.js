@@ -50,7 +50,8 @@ const PlaceOrder = () => {
             <div className='container mx-auto card shadow-xl mt-16 p-16 bg-white'>
                 <h1 className="text-4xl font-bold text-center px-24 col-span-2">Place Order</h1>
                 <h1 className="text-sm text-red-600 text-center px-24 col-span-2 mb-10">(All the following info are required)</h1>
-                <h1 className="text-4xl font-bold px-24 col-span-2"><strong>Service</strong>{name}</h1>
+                <h6 className="text-xl px-24 col-span-2 py-10"><strong>Service: </strong>{name}</h6>
+                <h6 className="text-xl px-24 col-span-2 py-10"><strong>Price: $</strong>{price}</h6>
 
                 {/* Order Form */}
                 <form onSubmit={handlePlaceOrderSubmit}>

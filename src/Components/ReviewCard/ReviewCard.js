@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 
 const ReviewCard = ({ myReview, handleDeleteReview, handleUpdateReview }) => {
-    const { _id, reviewerPhoto, reviewer, review } = myReview;
+    const { _id, reviewerPhoto, reviewer, review, nameOfService } = myReview;
 
 
     return (
@@ -14,12 +14,15 @@ const ReviewCard = ({ myReview, handleDeleteReview, handleUpdateReview }) => {
                     <button onClick={() => { handleDeleteReview(_id) }} className='m-2 justify-end text-right'><FaRegTrashAlt /></button>
                     <Link to={`/updatereview/${_id}`} className='m-2 justify-end text-right'><FaEdit /></Link>
                 </div>
-                <div className='mx-auto'>
-                    <img className='w-24 rounded-full' src={reviewerPhoto} alt="" />
-                </div>
-                <div>
-                    <p>{reviewer}</p>
-                    <p>{review}</p>
+                <div className='grid'>
+                    <div className='mx-auto'>
+                        <img className='w-24 rounded-full' src={reviewerPhoto} alt="" />
+                    </div>
+                    <div className='mx-auto'>
+                        <p className='font-medium'>{reviewer}</p>
+                    </div>
+                    <p className='py-3 px-5'>{review}</p>
+                    <p className='text-end text-sm text-slate-400'>{nameOfService}</p>
                 </div>
             </div>
         </div>

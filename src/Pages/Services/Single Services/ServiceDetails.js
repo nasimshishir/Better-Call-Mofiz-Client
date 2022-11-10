@@ -93,20 +93,20 @@ const ServiceDetails = () => {
                     </div>
                     {/* Reviews per Service */}
                     <div className='mt-16'>
-                        <h3 className='text-4xl font-semibold text-center pb-10'>Reviews for this Service</h3>
+                        <h3 className='text-4xl font-semibold text-center pb-10'>Reviews for {name} Service</h3>
                         {/* Display Review */}
                         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
                             {
-                                reviews.map(eachReview => <ReviewCard2 key={eachReview._id} eachReview={eachReview}> {eachReview.review}</ReviewCard2>)
+                                reviews.length === 0 ? <p className='bg-green-100 text-center mt-10 py-3'>No reviews for this service</p> : reviews.map(eachReview => <ReviewCard2 key={eachReview._id} eachReview={eachReview}> {eachReview.review}</ReviewCard2>)
                             }
                         </div>
                         {/* Post Review */}
                         <div>
                             {
-                                !user.email ? <p className=''>Please <Link to={"/login"}>Login</Link> to post a review</p> :
+                                !user?.email ? <p className='bg-green-100 text-center mt-10 py-3'>Please <Link className='font-medium text-green-600' to={"/login"}>Login</Link> to post a review</p> :
 
-                                    <form className='lg:w-md' onSubmit={handleReviewPostSubmit}>
-                                        <div className="form-control col-span-1">
+                                    <form className='pt-10' onSubmit={handleReviewPostSubmit}>
+                                        <div className="form-control w-full lg:w-sm col-span-1">
                                             <textarea name="review" type="text" placeholder="your review" className="input input-bordered" />
                                         </div>
                                         <div className="form-control mt-6 w-36">
