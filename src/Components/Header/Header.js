@@ -12,7 +12,7 @@ const Header = () => {
             .catch(error => console.error(error))
     }
     return (
-        <div className='bg-slate-100 shadow-lg'>
+        <div className='bg-slate-100 shadow-lg sticky top-0 z-10'>
             <div className=''>
                 <div className="navbar">
                     {/* mobile Nav */}

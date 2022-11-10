@@ -1,18 +1,25 @@
 import React from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 import ServiceCard from '../../Components/ServiceCard/ServiceCard';
-import banner from '../../Assets/Images/Home (1).jpg'
 import about from '../../Assets/Images/Home (2).jpg'
 
 const Home = () => {
-    const services = useLoaderData()
+    const servicess = useLoaderData()
+    const services = servicess;
     return (
         <div>
             {/* Banner */}
             <div>
-                <div className='h-96'>
-                    <img className='object-cover' src={banner} alt="" />
-
+                <div className="hero bg-cover h-screen max-h-screen" style={{ backgroundImage: `url("https://images.pexels.com/photos/8112118/pexels-photo-8112118.jpeg")` }}>
+                    <div className="hero-overlay bg-opacity-60"></div>
+                    <div className="text-right">
+                        <div className="max-w-md mr-10">
+                            <h1 className="mb-5 text-3xl font-bold text-white">Better Call</h1>
+                            <h1 className="mb-5 text-5xl font-bold text-orange-600">Mofiz</h1>
+                            <p className="mb-5 text-white">Carolyn L. Weiss, Esq. has more than twenty years’ experience representing individuals and small businesses in real estate transactions, commercial leasing and real estate financings throughout the New York metropolitan area.</p>
+                            <button className="btn btn-primary"><Link to={"/services"}>Services</Link></button>
+                        </div>
+                    </div>
                 </div>
             </div>
             {/* Services */}
@@ -40,7 +47,7 @@ const Home = () => {
                 <div className='  pl-16 my-auto'>
                     <h2 className='text-4xl font-bold mb-10'>About</h2>
                     <p className='text-justify'>
-                        Carolyn L. Weiss, Esq. has more than twenty years’ experience representing individuals and small businesses in real estate transactions, commercial leasing and real estate financings throughout the New York metropolitan area. Real estate transactions conducted by Ms. Weiss include house, cooperative and condominium unit, entire building and vacant land purchases and sales. She represents both purchasers and sellers, whose transactions are handled from inception to conclusion exclusively by an attorney. Ms. Weiss prepares and negotiates contracts, reviews title reports and surveys, confirms that all lender requirements in a loan commitment are satisfied, drafts closing documents and attends the closing. Depending upon the needs of the party in the transaction, Ms. Weiss conducts due diligence, such as interviewing the cooperative or condominium managing agent as to potential litigation, anticipated major capital improvements, maintenance and common charge increases, assessments and the like. In commercial property purchases, Ms. Weiss will investigate potential environmental concerns, review current leases, and obtain tenant estoppel letters in exchange for subordination and non-disturbance agreements.
+                        Mofiz has more than twenty years’ experience representing individuals and small businesses in real estate transactions, commercial leasing and real estate financings throughout the New York metropolitan area. Real estate transactions conducted by Ms. Weiss include house, cooperative and condominium unit, entire building and vacant land purchases and sales. She represents both purchasers and sellers, whose transactions are handled from inception to conclusion exclusively by an attorney. Ms. Weiss prepares and negotiates contracts, reviews title reports and surveys, confirms that all lender requirements in a loan commitment are satisfied, drafts closing documents and attends the closing. Depending upon the needs of the party in the transaction, Ms. Weiss conducts due diligence, such as interviewing the cooperative or condominium managing agent as to potential litigation, anticipated major capital improvements, maintenance and common charge increases, assessments and the like. In commercial property purchases, Ms. Weiss will investigate potential environmental concerns, review current leases, and obtain tenant estoppel letters in exchange for subordination and non-disturbance agreements.
                     </p>
                 </div>
 

@@ -1,10 +1,12 @@
 import React from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { FaGoogle, FaGithub } from 'react-icons/fa';
+import { FaGoogle } from 'react-icons/fa';
 import { useContext } from 'react';
 import { AuthContext } from '../../Contexts/AuthProvider/AuthProvider';
-import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
+import { GoogleAuthProvider } from 'firebase/auth';
 import { useState } from 'react';
+import { Toaster, toast } from 'react-hot-toast';
+
 
 const Login = () => {
     const [error, setError] = useState('');
@@ -15,7 +17,6 @@ const Login = () => {
 
     const { providerLogin, LoginWithEmailPassword } = useContext(AuthContext);
     const googleProvider = new GoogleAuthProvider()
-    const gitHubProvider = new GithubAuthProvider()
 
     const handleLoginSubmit = e => {
         e.preventDefault();
@@ -27,7 +28,8 @@ const Login = () => {
         LoginWithEmailPassword(email, password)
             .then(result => {
                 form.reset();
-                setError('')
+                setError('');
+                toast.success('Login Successful')
                 navigate(from, { replace: true })
             })
             .catch(error => {
@@ -42,23 +44,17 @@ const Login = () => {
     const handleGoogleSignIn = () => {
         providerLogin(googleProvider)
             .then(result => {
+                toast.success('Login Successful');
                 navigate(from, { replace: true })
             })
             .catch(error => console.error(error))
 
     }
 
-    // Github Sign In======================
-    const handleGitHubSignIn = () => {
-        providerLogin(gitHubProvider)
-            .then(result => {
-                navigate(from, { replace: true })
-            })
-            .catch(error => console.error(error))
-    }
+
     return (
         <div>
-            <div className="hero min-h-screen" style={{ backgroundImage: `url(https://cdn.pixabay.com/photo/2017/06/09/22/56/lady-justice-2388500_960_720.jpg)` }}>
+            <div className="hero min-h-screen bg-cover" style={{ backgroundImage: `url(https://cdn.pixabay.com/photo/2017/06/09/22/56/lady-justice-2388500_960_720.jpg)` }}>
                 <div className="hero-content flex-col lg:flex-row-reverse">
                     <div className=''>
                         <img src="" alt="" />
@@ -97,7 +93,6 @@ const Login = () => {
                             <div className="form-control mt-6">
                                 <h4 className='font-semibold text-center mb-2'>Login with</h4>
                                 <button onClick={handleGoogleSignIn} className="btn btn-outline mb-2"> <FaGoogle className='mr-3'></FaGoogle> Google</button>
-                                <button onClick={handleGitHubSignIn} className="btn btn-outline mb-2"> <FaGithub className='mr-3'></FaGithub> GitHub</button>
                             </div>
                             <div className='mt-2'>
                                 <p className='text-center'><small>Don't have an account? <Link className='text-cyan-700 font-medium' to="/register">Register here</Link></small></p>
@@ -106,6 +101,7 @@ const Login = () => {
                     </div>
                 </div>
             </div>
+            <Toaster position="top-center" />
 
         </div>
     );

@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import ReviewCard from '../../Components/ReviewCard/ReviewCard';
 import { AuthContext } from '../../Contexts/AuthProvider/AuthProvider';
+import toast, { Toaster } from 'react-hot-toast';
 
 const MyReviews = () => {
     const { user } = useContext(AuthContext);
@@ -28,7 +29,7 @@ const MyReviews = () => {
                 .then(res => res.json())
                 .then(data => {
                     if (data.deletedCount > 0) {
-                        alert('deleted successfully');
+                        toast('Review deleted successfully');
                         const remaining = myReviews.filter(rvw => rvw._id !== id);
                         setMyReviews(remaining);
                     }
@@ -53,6 +54,7 @@ const MyReviews = () => {
                     </div>
                 </div>
             </div>
+            <Toaster />
         </div>
     );
 };

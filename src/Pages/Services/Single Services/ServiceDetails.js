@@ -1,6 +1,10 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../../../Contexts/AuthProvider/AuthProvider';
+import toast, { Toaster } from 'react-hot-toast';
+import { PhotoProvider, PhotoView } from 'react-photo-view';
+import 'react-photo-view/dist/react-photo-view.css';
+
 
 const ServiceDetails = () => {
     const { user } = useContext(AuthContext);
@@ -52,11 +56,22 @@ const ServiceDetails = () => {
     }
 
     return (
-        <div className='container mx-auto'>
+        <div>
             <div>
 
             </div>
-            Service Details Page: {name}
+            <div className='bg-slate-50'>
+                <div className='container mx-auto bg-white'>
+                    Service Details Page: {name}
+                    <PhotoProvider>
+                        <PhotoView src={image}>
+                            <img src={image} alt="" />
+                        </PhotoView>
+                    </PhotoProvider>
+                </div>
+
+            </div>
+
             <br />
             <Link to={`/placeorder/${_id}`} ><button className='btn'>Aquire</button></Link>
 
