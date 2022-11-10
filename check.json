@@ -1,0 +1,38 @@
+[
+    {
+        "image": "https://i.postimg.cc/8PCy7pL4/pexels-august-de-richelieu-4427430.jpg",
+        "name": "Paralegal Assistance",
+        "description": "We provide all sorts of legal assistance such as, Tracking court poceedings, Intake Package management, Draft Pre-Litigation Documents etc. This assists us with assessing a medical condition of a person to support any litigation process.....",
+        "price": 35
+    },
+    {
+        "image": "https://i.postimg.cc/t4Z2zBSV/pexels-ekaterina-bolovtsova-6077447.jpg",
+        "name": "Legal Research",
+        "description": "There are two tasks involved in Legal research, first is observing the facts available and then analyzing them instead of the statutes and legislation in force. Now the second task is to find previously decided cases with facts that are similar to determine the view of courts over the particular type of matter. Sometimes a brief of the case is prepared and submitted in the court.....",
+        "price": 20
+    },
+    {
+        "image": "https://i.postimg.cc/HWzZWc8j/pexels-pixabay-48148.jpg",
+        "name": "Contract Management",
+        "description": "We provide end-to-end Contract Lifecycle Management services from the initial stage to the execution through to renewal/disposal. Contracts are an integral part of any business in modern-day business. The majority of business transactions are bound and governed by agreements and contracts. Now a contract contains some important and sensitive details of an organization’s relationship with its partners, customers, suppliers, and employees. The larger or bigger an organization grows, so do the contracts as well and this can be more burdensome to manage and track them effectively.....",
+        "price": 30
+    },
+    {
+        "image": "https://i.postimg.cc/2SsT9nM9/pexels-ekaterina-bolovtsova-6077326.jpg",
+        "name": "Litigation Support Services",
+        "description": "Our legal transcription services include but are not limited to, the transcription of depositions, testimonies, official court hearings, interrogations, legal briefs, client letters, general legal correspondence, documents, notes, etc. Better Call Mofiz legal team is composed of qualified and experienced transcribers who provide you with quality transcripts with attention to detail and it is accurate as well. With our skilled team and their in-depth knowledge of the legal sector, we provide a wide range of legal transcript services designed to your specific needs in Dhaka, Bangladesh....",
+        "price": 40
+    },
+    {
+        "image": "https://i.postimg.cc/HWzZWc8j/pexels-pixabay-48148.jpg",
+        "name": "Legal Transcription Services",
+        "description": "Our legal transcription services include but are not limited to, the transcription of depositions, testimonies, official court hearings, interrogations, legal briefs, client letters, general legal correspondence, documents, notes, etc. Better Call Mofiz legal team is composed of qualified and experienced transcribers who provide you with quality transcripts with attention to detail and it is accurate as well. With our skilled team and their in-depth knowledge of the legal sector, we provide a wide range of legal transcript services designed to your specific needs.....",
+        "price": 45
+    },
+    {
+        "image": "https://i.postimg.cc/SNtg8Brh/pexels-sora-shimazaki-5668772.jpg",
+        "name": "Miscellaneous services",
+        "description": "Deposition preparation basically is a preparation of a questionnaire that is asked to the deponent. The details of the conversation that takes place between the attorney and the deponent are reported by a court reporter which is called a transcript. This transcript deposition needs to be summarized for convenience, such as Judgement Review and Summary, Template Drafting, Analysis and Summarization of decided cases etc....",
+        "price": 60
+    }
+]

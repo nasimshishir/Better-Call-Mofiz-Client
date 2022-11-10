@@ -1,21 +1,30 @@
+import { setPersistence } from 'firebase/auth';
 import React from 'react';
 import toast, { Toaster } from 'react-hot-toast';
+import { useNavigate } from 'react-router-dom';
 
 
 const AddService = () => {
+    const navigate = useNavigate();
+
 
 
     const handleAddOrder = e => {
         e.preventDefault();
         const form = e.target;
-        const reviewPost = form.review.value;
+        const sImage = form.imageurl.value;
+        const sName = form.servicename.value;
+        const sDescription = form.description.value;
+        const sPrice = form.price.value;
 
         const newService = {
-
-
+            image: sImage,
+            name: sName,
+            description: sDescription,
+            price: sPrice
         }
 
-        fetch('https://assignment-11-server-eight.vercel.app/reviews', {
+        fetch('https://assignment-11-server-eight.vercel.app/services', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -26,8 +35,9 @@ const AddService = () => {
             .then(data => {
                 console.log(data);
                 if (data.acknowledged) {
-                    alert('You have successfully added a service')
+                    toast.success('You have successfully added a service')
                     form.reset();
+                    navigate('/services')
                 }
             })
             .catch(error => console.error(error));
@@ -36,27 +46,28 @@ const AddService = () => {
     }
 
     return (
-        <div>
+        <div className='h-3/4'>
             <div>
 
             </div>
-            <div>
+            <div className='container mx-auto py-16'>
+                <h4 className='mb-5 text-5xl font-bold text-black text-center pb-10'>Add Service here</h4>
                 <form onSubmit={handleAddOrder}>
                     <div className='grid grid-cols-2 gap-5'>
                         <div className="form-control col-span-1">
-                            <input name="email" type="email" placeholder="your email" className="input input-bordered" required />
+                            <input name="imageurl" type="text" placeholder="Thumbnail for Service" className="input input-bordered" required />
                         </div>
 
                         <div className="form-control col-span-1">
-                            <input name="fullname" type="text" placeholder="your full name" className="input input-bordered" required />
+                            <input name="servicename" type="text" placeholder="Name of Service" className="input input-bordered" required />
                         </div>
 
                         <div className="form-control col-span-1">
-                            <input name="phone" type="text" placeholder="your phone number" className="input input-bordered" required />
+                            <input name="description" type="text" placeholder="Description of Service" className="input input-bordered" required />
                         </div>
 
                         <div className="form-control col-span-1">
-                            <input name="address" type="text" placeholder="your address" className="input input-bordered" required />
+                            <input name="price" type="text" placeholder="Price" className="input input-bordered" required />
                         </div>
                     </div>
 
@@ -65,6 +76,7 @@ const AddService = () => {
                     </div>
                 </form>
             </div>
+            <Toaster />
         </div>
     );
 };

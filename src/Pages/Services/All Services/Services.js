@@ -7,9 +7,9 @@ const Services = () => {
     console.log(services);
 
     return (
-        <div className=''>
+        <div className='container mx-auto py-16'>
             <div>
-                Banner
+                <h4 className='mb-5 text-5xl font-bold text-black text-center pb-10'>All Service</h4>
             </div>
             <div className='container mx-auto grid grid-cols-3 gap-5'>
                 {

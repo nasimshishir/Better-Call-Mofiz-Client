@@ -12,7 +12,7 @@ const ServiceCard = ({ service }) => {
                     <h2 className="card-title">{name.substring(0, 23)}...</h2>
                     <p>{description.substring(0, 100)}<Link className='font-medium #3730a3' to={`/courses/${_id}`}> ...Read More</Link></p>
                     <div className='flex'>
-                        <span className='font-medium text-base mr-2'>Price:</span><span className='text-blue-600'>{price}</span>
+                        <span className='font-medium text-base mr-2'>Price: $</span><span className='text-blue-600 font-medium'>{price}</span>
                     </div>
                     <div className="card-actions justify-end">
                         <Link to={`/service/${_id}`}><button className="btn btn-outline"> View Details</button></Link>
