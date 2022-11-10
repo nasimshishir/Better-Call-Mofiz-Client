@@ -12,6 +12,7 @@ import Orders from "../../Pages/Orders/Orders";
 import MyReviews from "../../Pages/My Reviews/MyReviews";
 import AddService from "../../Pages/AddService/AddService";
 import PrivateRoute from "../Private Routes/PrivateRoute";
+import UpdateReview from "../../Pages/Update/UpdateReview";
 
 
 export const router = createBrowserRouter([
@@ -59,6 +60,13 @@ export const router = createBrowserRouter([
             {
                 path: "/addservice",
                 element: <PrivateRoute><AddService></AddService></PrivateRoute>
+            },
+            {
+                path: "/updatereview/:id",
+                element: <PrivateRoute><UpdateReview></UpdateReview></PrivateRoute>,
+                loader: async ({ params }) => {
+                    return fetch(`https://assignment-11-server-eight.vercel.app/service/${params.id}`);
+                }
             },
             {
                 path: "/blog",

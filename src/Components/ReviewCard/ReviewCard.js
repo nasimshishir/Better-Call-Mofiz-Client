@@ -1,11 +1,24 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { FaRegTrashAlt, FaEdit } from 'react-icons/fa'
 
 
 const ReviewCard = ({ myReview, handleDeleteReview, handleUpdateReview }) => {
     const { _id, reviewerPhoto, reviewer, review } = myReview;
+    const [newReview, setNewReview] = useState(myReview)
 
-    // <ReviewCard key={myReview._id} myReview={myReview} handleDeleteReview={handleDeleteReview}></ReviewCard>
+    const handleUpdateReviewSubmit = (e) => {
+        console.log('modal button called');
+        e.preventdefault();
+        const feeedback = e.target.feedback.value;
+
+        const reviewMessage = {
+            review: feeedback
+        }
+        const changedReview = { ...myReview };
+        setNewReview(changedReview);
+        handleUpdateReview(_id, newReview)
+
+    }
 
 
     return (
@@ -21,28 +34,6 @@ const ReviewCard = ({ myReview, handleDeleteReview, handleUpdateReview }) => {
                 <div>
                     <p>{reviewer}</p>
                     <p>{review}</p>
-                </div>
-            </div>
-            {/* Update Modal */}
-            <div>
-                <input type="checkbox" id="my-modal-3" className="modal-toggle" />
-                <div className="modal">
-                    <div className="modal-box relative">
-                        <label htmlFor="my-modal-3" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
-                        <h3 className="text-lg font-bold">Write your review here</h3>
-                        <div>
-                            {_id}
-                            <form onSubmit={() => handleUpdateReview(_id)}>
-                                <div className="form-control col-span-1">
-                                    <textarea name="review" type="text" placeholder="your review" className="input input-bordered" defaultValue={review} />
-                                </div>
-                                <div className="form-control mt-6 w-36">
-                                    <button className="btn btn-primary">Update Review</button>
-                                </div>
-                            </form>
-
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>

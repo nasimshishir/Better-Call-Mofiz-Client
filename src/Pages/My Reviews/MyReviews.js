@@ -6,19 +6,17 @@ const MyReviews = () => {
     const { user } = useContext(AuthContext);
     const [myReviews, setMyReviews] = useState([]);
 
+
+
     useEffect(() => {
         fetch(`https://assignment-11-server-eight.vercel.app/reviews?email=${user?.email}`)
             .then(res => res.json())
             .then(data => {
-                setMyReviews(data);
+                setMyReviews(data)
             })
             .catch(error => console.error(error));
 
     }, [user?.email])
-
-    const handleUpdateReview = () => {
-
-    }
 
     const handleDeleteReview = (id) => {
         const proceed = window.confirm('Are you sure, you want to cancel this order?');
@@ -48,7 +46,7 @@ const MyReviews = () => {
                     <h3 className='text-4xl font-bold text-center mb-5'>My Reviews</h3>
                     <div className='grid grid-cols-2 gap-5 px-5'>
                         {
-                            myReviews.length === 0 ? "No Reviews" : myReviews.map(myReview => <ReviewCard key={myReview._id} myReview={myReview} handleDeleteReview={handleDeleteReview} handleUpdateReview={handleUpdateReview}></ReviewCard>)
+                            myReviews.length === 0 ? "No Reviews" : myReviews.map(myReview => <ReviewCard key={myReview._id} myReview={myReview} handleDeleteReview={handleDeleteReview}></ReviewCard>)
 
                         }
                     </div>
