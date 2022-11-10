@@ -3,7 +3,33 @@ import React from 'react';
 const AddService = () => {
 
 
-    const handleAddOrder = () => {
+    const handleAddOrder = e => {
+        e.preventDefault();
+        const form = e.target;
+        const reviewPost = form.review.value;
+
+        const newService = {
+
+
+        }
+
+        fetch('https://assignment-11-server-eight.vercel.app/reviews', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(newService)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if (data.acknowledged) {
+                    alert('You have successfully added a service')
+                    form.reset();
+                }
+            })
+            .catch(error => console.error(error));
+
 
     }
 

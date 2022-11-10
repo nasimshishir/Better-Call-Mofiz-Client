@@ -65,7 +65,7 @@ export const router = createBrowserRouter([
                 path: "/updatereview/:id",
                 element: <PrivateRoute><UpdateReview></UpdateReview></PrivateRoute>,
                 loader: async ({ params }) => {
-                    return fetch(`https://assignment-11-server-eight.vercel.app/service/${params.id}`);
+                    return fetch(`https://assignment-11-server-eight.vercel.app/reviews/${params.id}`);
                 }
             },
             {

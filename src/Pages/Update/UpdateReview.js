@@ -1,28 +1,31 @@
-import React, { useState } from 'react';
-import { useLoaderData } from 'react-router-dom';
+import React from 'react';
+import { useLoaderData, useNavigate } from 'react-router-dom';
 
 const UpdateReview = () => {
 
-    const { oldReview } = useLoaderData()
-    const [newReview, setNewReview] = useState(oldReview)
+    const { _id, review } = useLoaderData()
+    const navigate = useNavigate();
 
 
 
+    const handleUpdateReview = e => {
+        e.preventDefault();
+        const newReview = e.target.feedback.value;
 
-    const handleUpdateReview = () => {
-        e.preventdefault();
-        fetch(`https://assignment-11-server-eight.vercel.app/reviews/${id}`, {
+        fetch(`https://assignment-11-server-eight.vercel.app/reviews/${_id}`, {
             method: 'PATCH',
             headers: {
                 'content-type': 'application/json'
             },
-            body: JSON.stringify(review)
+            body: JSON.stringify({ feedback: newReview })
         })
             .then(res => res.json())
             .then(data => {
                 if (data.modifiedCount > 0) {
                     alert('review updated')
-                }
+                };
+                navigate('/myreviews')
+
             })
             .catch(error => { console.error(error) })
 
@@ -30,16 +33,14 @@ const UpdateReview = () => {
     return (
         <div>
             <div>
-                {_id}
-                <form onSubmit={() => handleUpdateReview(_id)}>
+                <form onSubmit={handleUpdateReview}>
                     <div className="form-control col-span-1">
                         <textarea name="feedback" type="text" placeholder="your review" className="input input-bordered" defaultValue={review} />
                     </div>
                     <div className="form-control mt-6 w-36">
-                        <button className="btn btn-primary">Update Review</button>
+                        <button type='submit' className="btn btn-outline">Update Review</button>
                     </div>
                 </form>
-
             </div>
         </div>
     );
