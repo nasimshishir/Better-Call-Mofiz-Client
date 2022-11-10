@@ -10,7 +10,7 @@ const Home = () => {
         <div>
             {/* Banner */}
             <div>
-                <div className="hero bg-cover h-screen max-h-screen" style={{ backgroundImage: `url("https://images.pexels.com/photos/8112118/pexels-photo-8112118.jpeg")` }}>
+                <div className="hero bg-cover min-h-screen" style={{ backgroundImage: `url("https://images.pexels.com/photos/8112118/pexels-photo-8112118.jpeg")` }}>
                     <div className="hero-overlay bg-opacity-60"></div>
                     <div className="text-right">
                         <div className="max-w-md mr-10">

@@ -57,12 +57,18 @@ const ServiceDetails = () => {
 
     return (
         <div>
-            <div>
-
+            {/* Service Details Section */}
+            <div className="hero bg-cover min-h-screen" style={{ backgroundImage: `url("https://images.pexels.com/photos/8730785/pexels-photo-8730785.jpeg")` }}>
+                <div className="hero-overlay bg-opacity-60"></div>
+                <div className="text-right">
+                    <div className="max-w-md mr-10">
+                        <h1 className="mb-5 text-5xl font-bold text-white">{name}</h1>
+                    </div>
+                </div>
             </div>
             <div className='bg-slate-50'>
                 <div className='container mx-auto bg-white'>
-                    Service Details Page: {name}
+                    <h3 className='text-3xl font-semibold text-center'>Service Details: {name}</h3>
                     <PhotoProvider>
                         <PhotoView src={image}>
                             <img src={image} alt="" />
