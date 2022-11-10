@@ -1,3 +1,25 @@
+# Live Site Link-
+https://ass-11-client.web.app/
+ 
+## Description
+This is a Legal Service Provider website. 
+ 
+## Functionalities
+1. CTA section
+2. Regular Services Details
+3. Custom Services Details
+4. Reviews About Services
+5. User Dashboard
+ 
+ 
+### Hosting
+This website is hosted in firebase. For server side used Vercel and for database MongoDB were used.
+ 
+#### Framework
+ReactJS, Tailwind, DaisyUi were used to build this awesome site.
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

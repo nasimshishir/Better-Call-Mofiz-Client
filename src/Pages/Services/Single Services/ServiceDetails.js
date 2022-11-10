@@ -4,6 +4,7 @@ import { AuthContext } from '../../../Contexts/AuthProvider/AuthProvider';
 import toast, { Toaster } from 'react-hot-toast';
 import { PhotoProvider, PhotoView } from 'react-photo-view';
 import 'react-photo-view/dist/react-photo-view.css';
+import ReviewCard2 from '../../../Components/ReviewCard/ReviewCard2';
 
 
 const ServiceDetails = () => {
@@ -61,18 +62,18 @@ const ServiceDetails = () => {
             <div className="hero bg-cover min-h-screen" style={{ backgroundImage: `url("https://images.pexels.com/photos/8730785/pexels-photo-8730785.jpeg")` }}>
                 <div className="hero-overlay bg-opacity-60"></div>
                 <div className="text-right">
-                    <div className="max-w-md mr-10">
+                    <div className="max-w-lg mr-10">
                         <h1 className="mb-5 text-5xl font-bold text-white">{name}</h1>
                     </div>
                 </div>
             </div>
-            <div className='bg-slate-50'>
-                <div className='container mx-auto bg-white '>
-                    <h3 className='text-3xl font-semibold text-center'>Service Details: {name}</h3>
+            <div className='bg-slate-50 py-16'>
+                <div className='container mx-auto'>
+                    <h3 className='text-3xl font-semibold text-center pb-10'>Service Details</h3>
                     {/* Details Section */}
                     <div>
-                        <div className="card card-side bg-base-100 shadow-xl">
-                            <figure>
+                        <div className="card card-side shadow-xl bg-white">
+                            <figure className='w-full'>
                                 <PhotoProvider>
                                     <PhotoView src={image}>
                                         <img src={image} alt="" />
@@ -80,12 +81,40 @@ const ServiceDetails = () => {
                                 </PhotoProvider>
                             </figure>
                             <div className="card-body">
-                                <h2 className="card-title">New movie is released!</h2>
-                                <p>Click the button to watch on Jetflix app.</p>
+                                <h2 className="card-title">{name}</h2>
+                                <p><strong>Description:</strong> {description}</p>
+                                <p className='text-xl font-semibold text-blue-600'><strong>Price: $</strong>{price}</p>
                                 <div className="card-actions justify-end">
-                                    <button className="btn btn-primary">Watch</button>
+                                    <Link to={`/placeorder/${_id}`} ><button className='btn btn-primary'>Aquire</button></Link>
                                 </div>
                             </div>
+                        </div>
+
+                    </div>
+                    {/* Reviews per Service */}
+                    <div className='mt-16'>
+                        <h3 className='text-4xl font-semibold text-center pb-10'>Reviews for this Service</h3>
+                        {/* Display Review */}
+                        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
+                            {
+                                reviews.map(eachReview => <ReviewCard2 key={eachReview._id} eachReview={eachReview}> {eachReview.review}</ReviewCard2>)
+                            }
+                        </div>
+                        {/* Post Review */}
+                        <div>
+                            {
+                                !user.email ? <p className=''>Please <Link to={"/login"}>Login</Link> to post a review</p> :
+
+                                    <form className='lg:w-md' onSubmit={handleReviewPostSubmit}>
+                                        <div className="form-control col-span-1">
+                                            <textarea name="review" type="text" placeholder="your review" className="input input-bordered" />
+                                        </div>
+                                        <div className="form-control mt-6 w-36">
+                                            <button className="btn btn-primary">Post Review</button>
+                                        </div>
+                                    </form>
+                            }
+
                         </div>
 
                     </div>
@@ -94,30 +123,9 @@ const ServiceDetails = () => {
             </div>
 
             <br />
-            <Link to={`/placeorder/${_id}`} ><button className='btn'>Aquire</button></Link>
 
-            {/* Reviews per Service */}
-            <div>
-                {/* Display Review */}
-                <div>
-                    {
-                        reviews.map(eachReview => <div key={eachReview._id}> {eachReview.review}</div>)
-                    }
-                </div>
-                {/* Post Review */}
-                <div>
-                    <form onSubmit={handleReviewPostSubmit}>
-                        <div className="form-control col-span-1">
-                            <textarea name="review" type="text" placeholder="your review" className="input input-bordered" />
-                        </div>
-                        <div className="form-control mt-6 w-36">
-                            <button className="btn btn-primary">Post Review</button>
-                        </div>
-                    </form>
 
-                </div>
 
-            </div>
 
         </div>
     );
