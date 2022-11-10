@@ -67,13 +67,28 @@ const ServiceDetails = () => {
                 </div>
             </div>
             <div className='bg-slate-50'>
-                <div className='container mx-auto bg-white'>
+                <div className='container mx-auto bg-white '>
                     <h3 className='text-3xl font-semibold text-center'>Service Details: {name}</h3>
-                    <PhotoProvider>
-                        <PhotoView src={image}>
-                            <img src={image} alt="" />
-                        </PhotoView>
-                    </PhotoProvider>
+                    {/* Details Section */}
+                    <div>
+                        <div className="card card-side bg-base-100 shadow-xl">
+                            <figure>
+                                <PhotoProvider>
+                                    <PhotoView src={image}>
+                                        <img src={image} alt="" />
+                                    </PhotoView>
+                                </PhotoProvider>
+                            </figure>
+                            <div className="card-body">
+                                <h2 className="card-title">New movie is released!</h2>
+                                <p>Click the button to watch on Jetflix app.</p>
+                                <div className="card-actions justify-end">
+                                    <button className="btn btn-primary">Watch</button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
                 </div>
 
             </div>
