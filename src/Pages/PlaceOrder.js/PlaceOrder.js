@@ -41,7 +41,7 @@ const PlaceOrder = () => {
     }
 
     return (
-        <div className=' bg-slate-100'>
+        <div className=' bg-slate-50'>
             {/* Banner */}
             <div className='h-96 ' style={{ backgroundImage: `url(https://cdn.pixabay.com/photo/2017/06/09/22/56/lady-justice-2388500_960_720.jpg)` }}>
                 <h2>{name}</h2>

@@ -10,6 +10,8 @@ import Register from "../../Pages/Register/Register";
 import PlaceOrder from "../../Pages/PlaceOrder.js/PlaceOrder";
 import Orders from "../../Pages/Orders/Orders";
 import MyReviews from "../../Pages/My Reviews/MyReviews";
+import AddService from "../../Pages/AddService/AddService";
+import PrivateRoute from "../Private Routes/PrivateRoute";
 
 
 export const router = createBrowserRouter([
@@ -40,7 +42,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: "/placeorder/:id",
-                element: <PlaceOrder></PlaceOrder>,
+                element: <PrivateRoute><PlaceOrder></PlaceOrder></PrivateRoute>,
                 loader: async ({ params }) => {
                     return fetch(`https://assignment-11-server-eight.vercel.app/service/${params.id}`);
                 }
@@ -48,11 +50,15 @@ export const router = createBrowserRouter([
             },
             {
                 path: "/orders",
-                element: <Orders></Orders>
+                element: <PrivateRoute><Orders></Orders></PrivateRoute>
             },
             {
                 path: "/myreviews",
-                element: <MyReviews></MyReviews>
+                element: <PrivateRoute><MyReviews></MyReviews></PrivateRoute>
+            },
+            {
+                path: "/addservice",
+                element: <PrivateRoute><AddService></AddService></PrivateRoute>
             },
             {
                 path: "/blog",
