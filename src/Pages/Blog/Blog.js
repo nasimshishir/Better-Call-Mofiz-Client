@@ -1,6 +1,8 @@
 import React from 'react';
+import useSiteTitle from '../../Hooks/useSiteTitle';
 
 const Blog = () => {
+    useSiteTitle('Blog')
     return (
         <div>
             <div className='bg-slate-50'>

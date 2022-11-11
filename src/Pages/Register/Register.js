@@ -3,8 +3,10 @@ import { useContext } from 'react';
 
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Contexts/AuthProvider/AuthProvider';
+import useSiteTitle from '../../Hooks/useSiteTitle';
 
 const Register = () => {
+    useSiteTitle('Register')
     const [error, setError] = useState('');
     const navigate = useNavigate();
     const location = useLocation();

@@ -1,7 +1,9 @@
 import React from 'react';
 import { useLoaderData, useNavigate } from 'react-router-dom';
+import useSiteTitle from '../../Hooks/useSiteTitle';
 
 const UpdateReview = () => {
+    useSiteTitle('Update Review')
 
     const { _id, review } = useLoaderData()
     const navigate = useNavigate();

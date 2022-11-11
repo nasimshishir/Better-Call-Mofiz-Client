@@ -1,11 +1,26 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import ServiceCard from '../../Components/ServiceCard/ServiceCard';
 import about from '../../Assets/Images/Home (2).jpg'
+import useSiteTitle from '../../Hooks/useSiteTitle';
 
 const Home = () => {
-    const servicess = useLoaderData()
-    const services = servicess;
+    useSiteTitle('Better call Mofiz')
+    const services = useLoaderData()
+    const [customServices, setCustomServices] = useState([])
+
+    useEffect(() => {
+        fetch('https://assignment-11-server-eight.vercel.app/services')
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                const services = data.slice(6, 50);
+                setCustomServices(services);
+            })
+            .catch(error => console.error(error));
+    }, [])
+
+
     return (
         <div>
             {/* Banner */}
@@ -13,10 +28,10 @@ const Home = () => {
                 <div className="hero bg-cover min-h-screen" style={{ backgroundImage: `url("https://images.pexels.com/photos/8112118/pexels-photo-8112118.jpeg")` }}>
                     <div className="hero-overlay bg-opacity-60"></div>
                     <div className="text-right">
-                        <div className="max-w-md mr-10">
+                        <div className="max-w-screen mr-10">
                             <h1 className="mb-5 text-3xl font-bold text-white">Better Call</h1>
                             <h1 className="mb-5 text-5xl font-bold text-orange-600">Mofiz</h1>
-                            <p className="mb-5 text-white">Carolyn L. Weiss, Esq. has more than twenty years’ experience representing individuals and small businesses in real estate transactions, commercial leasing and real estate financings throughout the New York metropolitan area.</p>
+                            <p className="mb-5 text-white max-w-md">Mofiz has more than twenty years’ experience representing individuals and small businesses in real estate transactions, commercial leasing and real estate financings throughout the New York metropolitan area.</p>
                             <button className="btn btn-primary"><Link to={"/services"}>Services</Link></button>
                         </div>
                     </div>
@@ -51,8 +66,23 @@ const Home = () => {
                     </p>
                 </div>
 
-                {/* Section-4 */}
-                <div className='container mx-auto'>
+            </div>
+            {/* Section-4 */}
+            <div className='container mx-auto'>
+
+                <div className='container mx-auto py-20'>
+                    <div>
+                        <h2 className='text-4xl font-bold px-24 col-span-2 text-center'> New Services</h2>
+                    </div>
+                    <div className='grid grid-cols-3 gap-5 p-10'>
+                        {
+                            customServices.map(service => <ServiceCard key={service._id} service={service}></ServiceCard>)
+                        }
+                    </div>
+                    <div className='text-center py-10'>
+                        <button className='btn btn-outline text-center w-50'>SEE MORE</button>
+                    </div>
+
 
                 </div>
 

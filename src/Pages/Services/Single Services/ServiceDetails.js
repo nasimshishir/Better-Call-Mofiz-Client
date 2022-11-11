@@ -5,12 +5,14 @@ import toast, { Toaster } from 'react-hot-toast';
 import { PhotoProvider, PhotoView } from 'react-photo-view';
 import 'react-photo-view/dist/react-photo-view.css';
 import ReviewCard2 from '../../../Components/ReviewCard/ReviewCard2';
+import useSiteTitle from '../../../Hooks/useSiteTitle';
 
 
 const ServiceDetails = () => {
     const { user } = useContext(AuthContext);
     const { _id, name, image, price, description } = useLoaderData()
     const [reviews, setReviews] = useState([])
+    useSiteTitle('Service-', name)
 
     useEffect(() => {
         fetch(`https://assignment-11-server-eight.vercel.app/reviews?service=${_id}`)

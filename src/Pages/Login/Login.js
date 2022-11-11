@@ -6,9 +6,11 @@ import { AuthContext } from '../../Contexts/AuthProvider/AuthProvider';
 import { GoogleAuthProvider } from 'firebase/auth';
 import { useState } from 'react';
 import { Toaster, toast } from 'react-hot-toast';
+import useSiteTitle from '../../Hooks/useSiteTitle';
 
 
 const Login = () => {
+    useSiteTitle('Login')
     const [error, setError] = useState('');
     const navigate = useNavigate();
     const location = useLocation();

@@ -21,7 +21,7 @@ const MyReviews = () => {
     }, [user?.email])
 
     const handleDeleteReview = (id) => {
-        const proceed = window.confirm('Are you sure, you want to cancel this order?');
+        const proceed = window.confirm('Are you sure, you want to cancel this review?');
         if (proceed) {
             fetch(`https://assignment-11-server-eight.vercel.app/reviews/${id}`, {
                 method: 'DELETE'

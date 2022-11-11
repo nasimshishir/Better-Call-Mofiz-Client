@@ -1,10 +1,11 @@
-import { setPersistence } from 'firebase/auth';
 import React from 'react';
 import toast, { Toaster } from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
+import useSiteTitle from '../../Hooks/useSiteTitle';
 
 
 const AddService = () => {
+    useSiteTitle('Add Service')
     const navigate = useNavigate();
 
 
